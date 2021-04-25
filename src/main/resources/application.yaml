@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: moviedb-graphql
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/movies_db?rewriteBatchedStatements=true
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 10
+logging:
+  level:
+    Exposed: debug
