@@ -1,5 +1,7 @@
 package com.volodya.moviedb.movies
 
+import com.volodya.moviedb.movies.genres.Genre
+import com.volodya.moviedb.movies.tags.Tag
 import java.time.LocalDate
 
 class Movie(
@@ -14,4 +16,7 @@ class Movie(
     val revenueUsd: Long?,
     val rating: Double?,
     val votesCount: Int?,
+
+    val tags: List<Tag> = emptyList(),
+    val genres: List<Genre> = emptyList(),
 )

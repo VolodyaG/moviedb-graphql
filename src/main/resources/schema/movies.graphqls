@@ -1,20 +1,34 @@
 scalar Date
+scalar Long
+scalar Url
 
 type Query {
-    movie(id: Int): Movie
-    movies(limit: Int = 20, offset: Int = 0): [Movie!]!
+    movie(id: Int!): Movie
+    movies(limit: Int! = 20, offset: Int! = 0): [Movie!]!
 }
 
 type Movie  {
     id: Int!
     title: String!
     originalTitle: String!
-    url: String
+    url: Url
     tagline: String
     description: String!
     releaseDate: Date
-    budgedUsd: Int
-    revenueUsd: Int
+    budgedUsd: Long
+    revenueUsd: Long
     rating: Float
     votesCount: Int
+
+    tags: [Tag]!
+    genres: [Genre]!
+}
+
+type Tag {
+    id: Int!
+    name: String!
+}
+type Genre {
+    id: Int!
+    name: String!
 }

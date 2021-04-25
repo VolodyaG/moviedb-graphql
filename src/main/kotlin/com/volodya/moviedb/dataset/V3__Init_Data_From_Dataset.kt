@@ -102,7 +102,7 @@ class V3__Init_Data_From_Dataset : BaseJavaMigration() {
             this[MoviesTable.id] = it.id
             this[MoviesTable.title] = it.title
             this[MoviesTable.originalTitle] = it.originalTitle
-            this[MoviesTable.url] = it.homepage.ifBlank { null }
+            this[MoviesTable.url] = it.homepage.ifBlank { null }?.split(" ")?.last() // Some films has 2 urls
             this[MoviesTable.tagline] = it.tagline.ifBlank { null }
             this[MoviesTable.description] = it.overview!!
             this[MoviesTable.releaseDate] = it.releaseDate

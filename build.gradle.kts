@@ -19,9 +19,13 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv")
 
-    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:latest.release")
+    implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:3.11.0"))
+    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
+    implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
+    implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
 
     implementation("org.flywaydb:flyway-core")
+    runtimeOnly("org.postgresql:postgresql")
 
     implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.30.2")
     implementation("org.jetbrains.exposed:exposed-dao:0.30.2")
@@ -29,7 +33,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    runtimeOnly("org.postgresql:postgresql")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
