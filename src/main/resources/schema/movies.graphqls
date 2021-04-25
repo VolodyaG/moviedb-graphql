@@ -1,0 +1,20 @@
+scalar Date
+
+type Query {
+    movie(id: Int): Movie
+    movies(limit: Int = 20, offset: Int = 0): [Movie!]!
+}
+
+type Movie  {
+    id: Int!
+    title: String!
+    originalTitle: String!
+    url: String
+    tagline: String
+    description: String!
+    releaseDate: Date
+    budgedUsd: Int
+    revenueUsd: Int
+    rating: Float
+    votesCount: Int
+}
