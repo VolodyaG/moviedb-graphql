@@ -1,8 +1,12 @@
 package com.volodya.moviedb.movies.graphql
 
 import com.netflix.graphql.dgs.*
+import com.volodya.moviedb.common.SortedBy
+import com.volodya.moviedb.common.optionalOrderBy
+import com.volodya.moviedb.common.sortedBy
 import com.volodya.moviedb.movies.Movie
 import com.volodya.moviedb.movies.MovieDao
+import com.volodya.moviedb.movies.MoviesTable
 import com.volodya.moviedb.movies.genres.Genre
 import com.volodya.moviedb.movies.tags.Tag
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -11,9 +15,16 @@ import java.util.concurrent.CompletableFuture
 @DgsComponent
 class MoviesDataFetcher {
     @DgsQuery
-    fun movies(@InputArgument limit: Int = 20, @InputArgument offset: Int = 0): List<Movie> {
+    fun movies(
+        @InputArgument limit: Int = 20,
+        @InputArgument offset: Int = 0,
+        sortedBy: SortedBy?
+    ): List<Movie> {
         return transaction {
-            MovieDao.all().limit(limit, offset.toLong()).toList().map { it.toMovie() }
+            MovieDao.all()
+                .limit(limit, offset.toLong())
+                .optionalOrderBy(MoviesTable.sortedBy(sortedBy))
+                .toList().map { it.toMovie() }
         }
     }
 

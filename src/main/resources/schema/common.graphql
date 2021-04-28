@@ -1,0 +1,8 @@
+input SortedBy {
+    field: String!
+    order: SortOrdering!
+}
+enum SortOrdering {
+    ASC
+    DESC
+}

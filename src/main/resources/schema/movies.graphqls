@@ -4,7 +4,7 @@ scalar Url
 
 type Query {
     movie(id: Int!): Movie
-    movies(limit: Int! = 20, offset: Int! = 0): [Movie!]!
+    movies(limit: Int! = 20, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
 }
 
 type Movie  {
