@@ -1,7 +1,8 @@
-package com.volodya.moviedb.movies.graphql
+package com.volodya.moviedb.movies.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
+import com.volodya.moviedb.movies.graphql.toTag
 import com.volodya.moviedb.movies.tags.MovieTagsTable
 import com.volodya.moviedb.movies.tags.Tag
 import com.volodya.moviedb.movies.tags.TagDao
@@ -22,6 +23,6 @@ class MovieTagsDataLoader : MappedBatchLoader<Int, List<Tag>> {
             .toList()
             .groupBy(keySelector = { it[MovieTagsTable.movieId].value }) { TagDao.wrapRow(it).toTag() }
 
-        movieIds.associateWith { foundMovieTags[it].orEmpty() } // Populate default values for provided keys to avoid NPE
+        movieIds.associateWithOrDefaultEmpty { foundMovieTags[it] }
     }
 }

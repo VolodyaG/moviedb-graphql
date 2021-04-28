@@ -3,8 +3,11 @@ scalar Long
 scalar Url
 
 type Query {
-    movie(id: Int!): Movie
-    movies(limit: Int! = 20, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
+    movie(id: Int!): Movie!
+    movies(limit: Int! = 10, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
+
+    genre(id: Int!): Genre!
+    genres: [Genre]!
 }
 
 type Movie  {
@@ -27,8 +30,13 @@ type Movie  {
 type Tag {
     id: Int!
     name: String!
+
+    movies: [Movie]!
 }
 type Genre {
     id: Int!
     name: String!
+
+    movies(sortedBy: SortedBy, limit: Int! = 10): [Movie]!
 }
+
