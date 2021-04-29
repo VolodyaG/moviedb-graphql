@@ -1,0 +1,7 @@
+type Query {
+    movie(id: Int!): Movie!
+    movies(searchQuery: String, limit: Int! = 10, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
+
+    genre(id: Int!): Genre!
+    genres: [Genre]!
+}

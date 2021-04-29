@@ -8,18 +8,29 @@ https://127.0.0.1:8080/graphiql
 ### Find good movies with "Magic"
 ```graphql
 {
-  movies(searchQuery: "Magic", sortedBy: {field: "rating", order: DESC}) {
-    id
-    title
-    tagline
-    description
-    releaseDate
-    rating
-    genres {
-      id
-      name
+    movies(searchQuery: "Magic", sortedBy: {field: "rating", order: DESC}) {
+        id
+        title
+        tagline
+        description
+        releaseDate
+        rating
+        directors {
+            name
+        }
+        composers {
+            name
+        }
+        genres {
+            name
+        }
+        characters {
+            name
+            actor {
+                name
+            }
+        }
     }
-  }
 }
 ```
 
@@ -46,6 +57,26 @@ https://127.0.0.1:8080/graphiql
             id
             name
         }
+        directors {
+            id
+            name
+            gender
+        }
+        composers {
+            id
+            name
+            gender
+        }
+        characters {
+            id
+            order
+            name
+            actor {
+                id
+                name
+                gender
+            }
+        }
     }
 }
 ```
@@ -53,13 +84,16 @@ https://127.0.0.1:8080/graphiql
 ### Get Top 3 movies by user rating for each genre
 ```graphql
 {
-  genres {
-    name
-    movies(limit: 3, sortedBy: {field: "rating", order: DESC}) {
-      title
-      rating
-      tagline
+    genres {
+        name
+        movies(limit: 3, sortedBy: {field: "rating", order: DESC}) {
+            title
+            rating
+            tagline
+            directors {
+                name
+            }
+        }
     }
-  }
 }
 ```

@@ -1,3 +1,7 @@
+scalar Date
+scalar Long
+scalar Url
+
 input SortedBy {
     field: String!
     order: SortOrdering!

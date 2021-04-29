@@ -1,15 +1,3 @@
-scalar Date
-scalar Long
-scalar Url
-
-type Query {
-    movie(id: Int!): Movie!
-    movies(searchQuery: String, limit: Int! = 10, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
-
-    genre(id: Int!): Genre!
-    genres: [Genre]!
-}
-
 type Movie  {
     id: Int!
     title: String!
@@ -25,6 +13,10 @@ type Movie  {
 
     tags: [Tag]!
     genres: [Genre]!
+
+    directors: [Person]!
+    composers: [Person]!
+    characters: [Character]!
 }
 
 type Tag {
@@ -33,10 +25,10 @@ type Tag {
 
     movies: [Movie]!
 }
+
 type Genre {
     id: Int!
     name: String!
 
     movies(sortedBy: SortedBy, limit: Int! = 10): [Movie]!
 }
-

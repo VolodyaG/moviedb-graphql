@@ -1,0 +1,17 @@
+type Person {
+    id: Int!
+    name: String!
+    gender: Gender
+}
+
+type Character {
+    id: Int!
+    name: String!
+    order: Int!
+    actor: Person!
+}
+
+enum Gender {
+    MALE
+    FEMALE
+}

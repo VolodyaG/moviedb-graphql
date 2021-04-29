@@ -9,14 +9,16 @@ import com.volodya.moviedb.movies.Movie
 import com.volodya.moviedb.movies.MovieDao
 import com.volodya.moviedb.movies.MoviesTable
 import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.graphql.dataloaders.MovieGenresDataLoader
-import com.volodya.moviedb.movies.graphql.dataloaders.MovieTagsDataLoader
+import com.volodya.moviedb.movies.graphql.dataloaders.*
+import com.volodya.moviedb.movies.graphql.graphs.Character
+import com.volodya.moviedb.movies.graphql.graphs.Person
 import com.volodya.moviedb.movies.tags.Tag
 import org.jetbrains.exposed.sql.Op
 import org.jetbrains.exposed.sql.SizedIterable
 import org.jetbrains.exposed.sql.or
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.CompletableFuture
+
 
 @DgsComponent
 class MoviesDataFetcher {
@@ -54,6 +56,28 @@ class MoviesDataFetcher {
     fun movieGenres(dfe: DgsDataFetchingEnvironment): CompletableFuture<List<Genre>> {
         val movie = dfe.getSource<Movie>()
         val dataLoader = dfe.getDataLoader<Int, List<Genre>>(MovieGenresDataLoader::class.java)
+        return dataLoader.load(movie.id)
+    }
+
+    @DgsData(parentType = "Movie", field = "directors")
+    fun movieDirectors(dfe: DgsDataFetchingEnvironment): CompletableFuture<List<Person>> {
+        val movie = dfe.getSource<Movie>()
+        val dataLoader = dfe.getDataLoader<Int, List<Person>>(MovieDirectorsDataLoader::class.java)
+        return dataLoader.load(movie.id)
+    }
+
+    @DgsData(parentType = "Movie", field = "composers")
+    fun movieComposers(dfe: DgsDataFetchingEnvironment): CompletableFuture<List<Person>> {
+        val movie = dfe.getSource<Movie>()
+        val dataLoader = dfe.getDataLoader<Int, List<Person>>(MovieComposersDataLoader::class.java)
+        return dataLoader.load(movie.id)
+    }
+
+
+    @DgsData(parentType = "Movie", field = "characters")
+    fun movieCharacters(dfe: DgsDataFetchingEnvironment): CompletableFuture<List<Character>> {
+        val movie = dfe.getSource<Movie>()
+        val dataLoader = dfe.getDataLoader<Int, List<Character>>(MovieCharactersDataLoader::class.java)
         return dataLoader.load(movie.id)
     }
 
