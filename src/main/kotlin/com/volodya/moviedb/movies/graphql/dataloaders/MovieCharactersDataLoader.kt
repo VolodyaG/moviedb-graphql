@@ -5,7 +5,7 @@ import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
 import com.volodya.moviedb.movies.characters.CharacterDao
 import com.volodya.moviedb.movies.characters.CharactersTable
 import com.volodya.moviedb.movies.graphql.graphs.Character
-import com.volodya.moviedb.movies.graphql.toCharacter
+import com.volodya.moviedb.movies.graphql.toPerson
 import org.dataloader.MappedBatchLoader
 import org.jetbrains.exposed.dao.with
 import org.jetbrains.exposed.sql.SortOrder
@@ -24,6 +24,10 @@ class MovieCharactersDataLoader : MappedBatchLoader<Int, List<Character>> {
             .toList()
             .groupBy(keySelector = { it.movie.id.value }) { it.toCharacter() }
 
-        movieIds.associateWith { foundCharacters[it]!! }
+        movieIds.associateWithOrDefaultEmpty { foundCharacters[it] }
+    }
+
+    fun CharacterDao.toCharacter(): Character {
+        return Character(this.id.value, this.playedCharacter, this.priorityOrder, this.person.toPerson(), movie = null)
     }
 }

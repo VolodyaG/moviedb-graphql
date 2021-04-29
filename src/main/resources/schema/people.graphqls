@@ -2,13 +2,19 @@ type Person {
     id: Int!
     name: String!
     gender: Gender
+
+    playedCharacters: [Character]!
+    directorOfMovies: [Movie]!
+    compositorOfMovies: [Movie]!
 }
 
 type Character {
     id: Int!
     name: String!
     order: Int!
-    actor: Person!
+
+    actor: Person
+    movie: Movie
 }
 
 enum Gender {

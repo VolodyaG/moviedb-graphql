@@ -23,6 +23,6 @@ class MovieDirectorsDataLoader : MappedBatchLoader<Int, List<Person>> {
             .toList()
             .groupBy(keySelector = { it[MovieDirectorTable.movieId].value }) { PersonDao.wrapRow(it).toPerson() }
 
-        movieIds.associateWith { foundPersons[it]!! }
+        movieIds.associateWithOrDefaultEmpty { foundPersons[it] }
     }
 }

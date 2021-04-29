@@ -97,3 +97,41 @@ https://127.0.0.1:8080/graphiql
     }
 }
 ```
+
+### Find Female actresses 
+```graphql
+{
+    person(id: 138) {
+        name
+        directorOfMovies {
+            title
+            releaseDate
+        }
+        playedCharacters {
+            name
+            movie {
+                title
+            }
+        }
+    }
+}
+```
+
+### Get All movies of Quentin Tarantino
+```graphql
+{
+  person(id: 138) {
+    name
+    playedCharacters {
+      name
+      movie {
+        title
+      }
+    }
+    directorOfMovies {
+      title
+    }
+  }
+}
+
+```
