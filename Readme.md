@@ -5,6 +5,24 @@
 ## Example Queries
 https://127.0.0.1:8080/graphiql
 
+### Find good movies with "Magic"
+```graphql
+{
+  movies(searchQuery: "Magic", sortedBy: {field: "rating", order: DESC}) {
+    id
+    title
+    tagline
+    description
+    releaseDate
+    rating
+    genres {
+      id
+      name
+    }
+  }
+}
+```
+
 ### Get Top 100 most expensive movies 
 ```graphql
 {

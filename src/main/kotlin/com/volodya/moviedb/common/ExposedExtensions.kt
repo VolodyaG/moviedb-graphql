@@ -29,3 +29,7 @@ fun OrderBy.toSortOrder(): SortOrder {
 
 private val humps = "(?<=.)(?=\\p{Upper})".toRegex()
 private fun String.toSnakeCase() = replace(humps, "_").toLowerCase()
+
+class ILikeOp(expr1: Expression<*>, expr2: Expression<*>) : ComparisonOp(expr1, expr2, "ILIKE")
+
+infix fun <T : String?> Expression<T>.ilike(pattern: String): ILikeOp = ILikeOp(this, stringParam(pattern))

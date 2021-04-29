@@ -1,6 +1,7 @@
 package com.volodya.moviedb.movies.graphql
 
 import com.netflix.graphql.dgs.*
+import com.volodya.moviedb.common.ilike
 import com.volodya.moviedb.common.optionalOrderBy
 import com.volodya.moviedb.common.sortedBy
 import com.volodya.moviedb.graphql.SortedBy
@@ -11,6 +12,9 @@ import com.volodya.moviedb.movies.genres.Genre
 import com.volodya.moviedb.movies.graphql.dataloaders.MovieGenresDataLoader
 import com.volodya.moviedb.movies.graphql.dataloaders.MovieTagsDataLoader
 import com.volodya.moviedb.movies.tags.Tag
+import org.jetbrains.exposed.sql.Op
+import org.jetbrains.exposed.sql.SizedIterable
+import org.jetbrains.exposed.sql.or
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.CompletableFuture
 
@@ -20,10 +24,11 @@ class MoviesDataFetcher {
     fun movies(
         @InputArgument limit: Int = 20,
         @InputArgument offset: Int = 0,
+        @InputArgument searchQuery: String?,
         @InputArgument sortedBy: SortedBy?
     ): List<Movie> {
         return transaction {
-            MovieDao.all()
+            MovieDao.searchMovies(searchQuery)
                 .limit(limit, offset.toLong())
                 .optionalOrderBy(MoviesTable.sortedBy(sortedBy))
                 .toList().map { it.toMovie() }
@@ -31,7 +36,7 @@ class MoviesDataFetcher {
     }
 
     @DgsQuery
-    fun movie(@InputArgument id: Int, dfe: DgsDataFetchingEnvironment): Movie {
+    fun movie(@InputArgument id: Int): Movie {
         return transaction {
             requireNotNull(MovieDao.findById(id)) { "Movie with id $id not found" }
                 .toMovie()
@@ -50,5 +55,16 @@ class MoviesDataFetcher {
         val movie = dfe.getSource<Movie>()
         val dataLoader = dfe.getDataLoader<Int, List<Genre>>(MovieGenresDataLoader::class.java)
         return dataLoader.load(movie.id)
+    }
+
+    private fun MovieDao.Companion.searchMovies(searchQuery: String?): SizedIterable<MovieDao> {
+        val op = if (searchQuery != null) {
+            Op.build {
+                val like = "%$searchQuery%"
+                MoviesTable.description.ilike(like).or(MoviesTable.title.ilike(searchQuery))
+            }
+        } else Op.TRUE
+
+        return find(op)
     }
 }

@@ -4,7 +4,7 @@ scalar Url
 
 type Query {
     movie(id: Int!): Movie!
-    movies(limit: Int! = 10, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
+    movies(searchQuery: String, limit: Int! = 10, offset: Int! = 0, sortedBy: SortedBy): [Movie!]!
 
     genre(id: Int!): Genre!
     genres: [Genre]!

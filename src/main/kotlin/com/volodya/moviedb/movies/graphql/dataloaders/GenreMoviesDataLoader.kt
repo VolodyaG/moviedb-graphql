@@ -39,7 +39,7 @@ class GenreMoviesDataLoader : MappedBatchLoaderWithContext<Int, List<Movie>> {
         // Todo Find out how properly provide query parameters to dataloader
         val contexts = env.keyContextsList.distinct()
         require(contexts.size == 1) { "DataLoader should have single context" }
-        return contexts.first()
+        return contexts.first() as Context
     }
 
     data class Context(
