@@ -1,12 +1,12 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
-import com.volodya.moviedb.movies.graphql.toTag
-import com.volodya.moviedb.movies.tags.MovieTagsTable
-import com.volodya.moviedb.movies.tags.Tag
-import com.volodya.moviedb.movies.tags.TagDao
-import com.volodya.moviedb.movies.tags.TagsTable
+import com.volodya.moviedb.graphql.graphs.Tag
+import com.volodya.moviedb.graphql.graphs.toTag
+import com.volodya.moviedb.movies.MovieTagsTable
+import com.volodya.moviedb.movies.TagDao
+import com.volodya.moviedb.movies.TagsTable
 import org.dataloader.MappedBatchLoader
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction

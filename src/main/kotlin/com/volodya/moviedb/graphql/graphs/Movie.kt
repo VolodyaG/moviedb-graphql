@@ -1,7 +1,5 @@
-package com.volodya.moviedb.movies
+package com.volodya.moviedb.graphql.graphs
 
-import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.tags.Tag
 import java.time.LocalDate
 
 class Movie(

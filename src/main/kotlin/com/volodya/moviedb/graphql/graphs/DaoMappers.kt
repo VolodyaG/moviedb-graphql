@@ -1,12 +1,8 @@
-package com.volodya.moviedb.movies.graphql
+package com.volodya.moviedb.graphql.graphs
 
-import com.volodya.moviedb.movies.Movie
+import com.volodya.moviedb.movies.GenreDao
 import com.volodya.moviedb.movies.MovieDao
-import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.genres.GenreDao
-import com.volodya.moviedb.movies.graphql.graphs.Person
-import com.volodya.moviedb.movies.tags.Tag
-import com.volodya.moviedb.movies.tags.TagDao
+import com.volodya.moviedb.movies.TagDao
 import com.volodya.moviedb.people.PersonDao
 
 fun MovieDao.toMovie(): Movie {

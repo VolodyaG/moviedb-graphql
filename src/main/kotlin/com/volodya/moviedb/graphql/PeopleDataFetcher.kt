@@ -1,13 +1,14 @@
-package com.volodya.moviedb.movies.graphql
+package com.volodya.moviedb.graphql
 
 import com.netflix.graphql.dgs.*
-import com.volodya.moviedb.movies.Movie
-import com.volodya.moviedb.movies.characters.CharactersTable
-import com.volodya.moviedb.movies.graphql.dataloaders.ComposerMoviesDataLoader
-import com.volodya.moviedb.movies.graphql.dataloaders.DirectorMoviesDataLoader
-import com.volodya.moviedb.movies.graphql.dataloaders.PersonCharactersDataLoader
-import com.volodya.moviedb.movies.graphql.graphs.Character
-import com.volodya.moviedb.movies.graphql.graphs.Person
+import com.volodya.moviedb.graphql.dataloaders.ComposerMoviesDataLoader
+import com.volodya.moviedb.graphql.dataloaders.DirectorMoviesDataLoader
+import com.volodya.moviedb.graphql.dataloaders.PersonCharactersDataLoader
+import com.volodya.moviedb.graphql.graphs.Character
+import com.volodya.moviedb.graphql.graphs.Movie
+import com.volodya.moviedb.graphql.graphs.Person
+import com.volodya.moviedb.graphql.graphs.toPerson
+import com.volodya.moviedb.movies.CharactersTable
 import com.volodya.moviedb.people.Gender
 import com.volodya.moviedb.people.PeopleTable
 import com.volodya.moviedb.people.PersonDao

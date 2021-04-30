@@ -1,4 +1,4 @@
-package com.volodya.moviedb.movies.genres
+package com.volodya.moviedb.graphql.graphs
 
 class Genre(
     val id: Int,

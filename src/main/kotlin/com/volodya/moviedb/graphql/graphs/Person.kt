@@ -1,4 +1,4 @@
-package com.volodya.moviedb.movies.graphql.graphs
+package com.volodya.moviedb.graphql.graphs
 
 import com.volodya.moviedb.people.Gender
 

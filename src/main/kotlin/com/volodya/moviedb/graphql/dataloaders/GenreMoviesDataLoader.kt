@@ -1,15 +1,15 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
 import com.volodya.moviedb.common.optionalOrderBy
 import com.volodya.moviedb.common.sortedBy
-import com.volodya.moviedb.graphql.SortedBy
-import com.volodya.moviedb.movies.Movie
+import com.volodya.moviedb.graphql.graphs.Movie
+import com.volodya.moviedb.graphql.graphs.toMovie
+import com.volodya.moviedb.graphql.typings.SortedBy
 import com.volodya.moviedb.movies.MovieDao
+import com.volodya.moviedb.movies.MovieGenresTable
 import com.volodya.moviedb.movies.MoviesTable
-import com.volodya.moviedb.movies.genres.MovieGenresTable
-import com.volodya.moviedb.movies.graphql.toMovie
 import org.dataloader.BatchLoaderEnvironment
 import org.dataloader.MappedBatchLoaderWithContext
 import org.jetbrains.exposed.sql.select

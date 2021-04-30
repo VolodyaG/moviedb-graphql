@@ -1,7 +1,5 @@
-package com.volodya.moviedb.movies.characters
+package com.volodya.moviedb.movies
 
-import com.volodya.moviedb.movies.MovieDao
-import com.volodya.moviedb.movies.MoviesTable
 import com.volodya.moviedb.people.PeopleTable
 import com.volodya.moviedb.people.PersonDao
 import org.jetbrains.exposed.dao.IntEntity

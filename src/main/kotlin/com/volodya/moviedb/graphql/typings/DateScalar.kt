@@ -1,4 +1,4 @@
-package com.volodya.moviedb.graphql
+package com.volodya.moviedb.graphql.typings
 
 import com.netflix.graphql.dgs.DgsScalar
 import graphql.language.StringValue

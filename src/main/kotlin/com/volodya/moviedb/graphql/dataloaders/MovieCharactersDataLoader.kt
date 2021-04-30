@@ -1,11 +1,11 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
-import com.volodya.moviedb.movies.characters.CharacterDao
-import com.volodya.moviedb.movies.characters.CharactersTable
-import com.volodya.moviedb.movies.graphql.graphs.Character
-import com.volodya.moviedb.movies.graphql.toPerson
+import com.volodya.moviedb.graphql.graphs.Character
+import com.volodya.moviedb.graphql.graphs.toPerson
+import com.volodya.moviedb.movies.CharacterDao
+import com.volodya.moviedb.movies.CharactersTable
 import org.dataloader.MappedBatchLoader
 import org.jetbrains.exposed.dao.with
 import org.jetbrains.exposed.sql.SortOrder

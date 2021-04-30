@@ -1,11 +1,12 @@
-package com.volodya.moviedb.movies.graphql
+package com.volodya.moviedb.graphql
 
 import com.netflix.graphql.dgs.*
-import com.volodya.moviedb.graphql.SortedBy
-import com.volodya.moviedb.movies.Movie
-import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.genres.GenreDao
-import com.volodya.moviedb.movies.graphql.dataloaders.GenreMoviesDataLoader
+import com.volodya.moviedb.graphql.dataloaders.GenreMoviesDataLoader
+import com.volodya.moviedb.graphql.graphs.Genre
+import com.volodya.moviedb.graphql.graphs.Movie
+import com.volodya.moviedb.graphql.graphs.toGenre
+import com.volodya.moviedb.graphql.typings.SortedBy
+import com.volodya.moviedb.movies.GenreDao
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.concurrent.CompletableFuture
 

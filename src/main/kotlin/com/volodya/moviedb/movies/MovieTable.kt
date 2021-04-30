@@ -1,13 +1,5 @@
 package com.volodya.moviedb.movies
 
-import com.volodya.moviedb.movies.characters.CharacterDao
-import com.volodya.moviedb.movies.characters.CharactersTable
-import com.volodya.moviedb.movies.crew.MovieComposerTable
-import com.volodya.moviedb.movies.crew.MovieDirectorTable
-import com.volodya.moviedb.movies.genres.GenreDao
-import com.volodya.moviedb.movies.genres.MovieGenresTable
-import com.volodya.moviedb.movies.tags.MovieTagsTable
-import com.volodya.moviedb.movies.tags.TagDao
 import com.volodya.moviedb.people.PersonDao
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass

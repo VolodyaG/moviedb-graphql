@@ -1,4 +1,4 @@
-package com.volodya.moviedb.graphql
+package com.volodya.moviedb.graphql.typings
 
 data class SortedBy(
     val field: String,

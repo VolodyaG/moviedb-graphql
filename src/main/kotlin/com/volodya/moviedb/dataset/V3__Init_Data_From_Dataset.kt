@@ -3,14 +3,7 @@ package com.volodya.moviedb.dataset
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
-import com.volodya.moviedb.movies.MoviesTable
-import com.volodya.moviedb.movies.characters.CharactersTable
-import com.volodya.moviedb.movies.crew.MovieComposerTable
-import com.volodya.moviedb.movies.crew.MovieDirectorTable
-import com.volodya.moviedb.movies.genres.GenresTable
-import com.volodya.moviedb.movies.genres.MovieGenresTable
-import com.volodya.moviedb.movies.tags.MovieTagsTable
-import com.volodya.moviedb.movies.tags.TagsTable
+import com.volodya.moviedb.movies.*
 import com.volodya.moviedb.people.Gender
 import com.volodya.moviedb.people.PeopleTable
 import org.flywaydb.core.api.migration.BaseJavaMigration

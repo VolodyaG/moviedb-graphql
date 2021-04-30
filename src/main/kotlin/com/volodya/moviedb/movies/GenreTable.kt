@@ -1,6 +1,5 @@
-package com.volodya.moviedb.movies.genres
+package com.volodya.moviedb.movies
 
-import com.volodya.moviedb.movies.MoviesTable
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID

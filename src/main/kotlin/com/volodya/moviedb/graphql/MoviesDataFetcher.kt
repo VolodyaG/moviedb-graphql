@@ -1,18 +1,14 @@
-package com.volodya.moviedb.movies.graphql
+package com.volodya.moviedb.graphql
 
 import com.netflix.graphql.dgs.*
 import com.volodya.moviedb.common.ilike
 import com.volodya.moviedb.common.optionalOrderBy
 import com.volodya.moviedb.common.sortedBy
-import com.volodya.moviedb.graphql.SortedBy
-import com.volodya.moviedb.movies.Movie
+import com.volodya.moviedb.graphql.dataloaders.*
+import com.volodya.moviedb.graphql.graphs.*
+import com.volodya.moviedb.graphql.typings.SortedBy
 import com.volodya.moviedb.movies.MovieDao
 import com.volodya.moviedb.movies.MoviesTable
-import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.graphql.dataloaders.*
-import com.volodya.moviedb.movies.graphql.graphs.Character
-import com.volodya.moviedb.movies.graphql.graphs.Person
-import com.volodya.moviedb.movies.tags.Tag
 import org.jetbrains.exposed.sql.Op
 import org.jetbrains.exposed.sql.SizedIterable
 import org.jetbrains.exposed.sql.or

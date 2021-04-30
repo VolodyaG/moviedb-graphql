@@ -1,4 +1,4 @@
-package com.volodya.moviedb.movies.tags
+package com.volodya.moviedb.graphql.graphs
 
 class Tag(
     val id: Int,

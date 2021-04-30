@@ -1,12 +1,12 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
-import com.volodya.moviedb.movies.Movie
+import com.volodya.moviedb.graphql.graphs.Movie
+import com.volodya.moviedb.graphql.graphs.toMovie
 import com.volodya.moviedb.movies.MovieDao
+import com.volodya.moviedb.movies.MovieDirectorTable
 import com.volodya.moviedb.movies.MoviesTable
-import com.volodya.moviedb.movies.crew.MovieDirectorTable
-import com.volodya.moviedb.movies.graphql.toMovie
 import org.dataloader.MappedBatchLoader
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction

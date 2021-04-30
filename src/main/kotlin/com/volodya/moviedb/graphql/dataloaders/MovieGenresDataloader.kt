@@ -1,12 +1,12 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
-import com.volodya.moviedb.movies.genres.Genre
-import com.volodya.moviedb.movies.genres.GenreDao
-import com.volodya.moviedb.movies.genres.GenresTable
-import com.volodya.moviedb.movies.genres.MovieGenresTable
-import com.volodya.moviedb.movies.graphql.toGenre
+import com.volodya.moviedb.graphql.graphs.Genre
+import com.volodya.moviedb.graphql.graphs.toGenre
+import com.volodya.moviedb.movies.GenreDao
+import com.volodya.moviedb.movies.GenresTable
+import com.volodya.moviedb.movies.MovieGenresTable
 import org.dataloader.MappedBatchLoader
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction

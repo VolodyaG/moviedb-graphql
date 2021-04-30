@@ -1,7 +1,7 @@
 package com.volodya.moviedb.common
 
-import com.volodya.moviedb.graphql.OrderBy
-import com.volodya.moviedb.graphql.SortedBy
+import com.volodya.moviedb.graphql.typings.OrderBy
+import com.volodya.moviedb.graphql.typings.SortedBy
 import org.jetbrains.exposed.sql.*
 
 fun <T> SizedIterable<T>.optionalOrderBy(condition: List<Pair<Expression<*>, SortOrder>>?): SizedIterable<T> {

@@ -1,10 +1,10 @@
-package com.volodya.moviedb.movies.graphql.dataloaders
+package com.volodya.moviedb.graphql.dataloaders
 
 import com.netflix.graphql.dgs.DgsDataLoader
 import com.volodya.moviedb.common.DB_IN_CLAUSE_SIZE_LIMIT
-import com.volodya.moviedb.movies.crew.MovieComposerTable
-import com.volodya.moviedb.movies.graphql.graphs.Person
-import com.volodya.moviedb.movies.graphql.toPerson
+import com.volodya.moviedb.graphql.graphs.Person
+import com.volodya.moviedb.graphql.graphs.toPerson
+import com.volodya.moviedb.movies.MovieComposerTable
 import com.volodya.moviedb.people.PeopleTable
 import com.volodya.moviedb.people.PersonDao
 import org.dataloader.MappedBatchLoader

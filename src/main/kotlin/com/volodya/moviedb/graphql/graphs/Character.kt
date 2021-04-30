@@ -1,6 +1,4 @@
-package com.volodya.moviedb.movies.graphql.graphs
-
-import com.volodya.moviedb.movies.Movie
+package com.volodya.moviedb.graphql.graphs
 
 class Character(
     val id: Int,
