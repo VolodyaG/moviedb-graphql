@@ -8,7 +8,7 @@ spring:
     username: ${JDBC_USER:postgres}
     password: ${JDBS_PSWD:admin}
     hikari:
-      maximum-pool-size: ${JDBC_POOL_SIZE:4}
+      maximum-pool-size: ${JDBC_POOL_SIZE:2}
 logging:
   level:
     Exposed: debug

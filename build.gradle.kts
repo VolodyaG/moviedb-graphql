@@ -1,6 +1,7 @@
 plugins {
     id("org.springframework.boot") version "2.4.5"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("com.google.cloud.tools.jib") version "3.0.0"
     kotlin("jvm") version "1.4.32"
     kotlin("plugin.spring") version "1.4.32"
 }
@@ -48,5 +49,21 @@ tasks {
     }
     test {
         useJUnitPlatform()
+    }
+
+    jib {
+        to {
+            image = "volodya/movies-graphql:1"
+        }
+        container {
+            jvmFlags = listOf(
+                "-XX:+UseG1GC",
+                "-XX:MaxGCPauseMillis=100",
+                "-XX:MaxMetaspaceSize=128m",
+                "-XX:ReservedCodeCacheSize=128m",
+                "-Xms256m",
+                "-Xmx512g"
+            )
+        }
     }
 }
